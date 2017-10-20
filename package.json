@@ -1,0 +1,9 @@
+{
+  "name": "image-merger",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "dependencies": {
+    "gm": "^1.23.0"
+  }
+}
