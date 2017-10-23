@@ -1,45 +1,10 @@
 <html>
+  <head>
+    <script src="config.js"></script>
+    <script src="script/script.js"></script>
+  </head>
     <body>
         <div id="wargos-images">
         </div>
     </body>
 </html>
-
-<script type="text/javascript">
-var logo_url = './theme/logo.png';
-var items = [
-  './input/background.png'
-];
-
-var generate = function() {
-  var logo = new Image();
-  logo.src = logo_url;
-  logo.onload = function() {
-    items.forEach(function(item) {
-      var image = new Image();
-      image.src = item;
-      image.onload = function(err) {
-        var canvas = create_canvas(image.width, image.height);
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(image, 0, 0);
-        ctx.globalAlpha = 0.5;
-        ctx.drawImage(logo, 20, 200);
-      };
-      image.onerror = function(err) {
-        console.error('Image does not exit', err);
-      };
-    });
-  };
-}
-
-function create_canvas(width, height) {
-  var canvas = document.createElement('canvas');
-  canvas.width = width;
-  canvas.height = height;
-  var main = document.getElementById('wargos-images');
-  main.appendChild(canvas);
-  return canvas;
-}
-
-generate();
-</script>
