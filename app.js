@@ -1,5 +1,52 @@
 // let gm  = require('gm');
 var fs = require('fs');
+
+var Jimp = require("jimp");
+
+// open a file called "lenna.png"
+// Jimp.read('./theme/logo.png', function (err, lenna) {
+//     if (err) throw err;
+//     lenna.resize(256, 256)            // resize
+//          .quality(100)                 // set JPEG quality
+//          .greyscale()                 // set greyscale
+//          .write("lena-small-bw.jpg"); // save
+// });
+// Jimp.read('./imput/background.png', function (err, lenna) {
+//     if (err) throw err;
+//     lenna.resize(256, 256)            // resize
+//          .quality(100)                 // set JPEG quality
+//          .greyscale()                 // set greyscale
+//          .write("lena-small-bw.jpg"); // save
+// });
+
+
+Jimp.read('./imput/background.png').then(function (lenna) {
+    lenna.resize(256, 256)            // resize
+         .quality(60)                 // set JPEG quality
+         .greyscale()                 // set greyscale
+         .write("lena-small-bw.jpg"); // save
+}).catch(function (err) {
+    console.error(err);
+});
+
+// let gm = require('gm');
+//
+// let change_image_url = './theme/logo.png';
+// let base_image_url = './imput/background.png';
+// let output_file = 'res.png';
+// gm()
+// .command("composite")
+// .in("-gravity", "center")
+// .in(change_image_url)
+// .in(base_image_url)
+// .write( output_file, function (err) {
+//   if (!err)
+//     console.log(' hooray! ');
+//   else
+//     console.log(err);
+// });
+
+
 // let gm = require('gm').subClass({imageMagick: true});
 // console.log(gm);
 // gm()
@@ -22,19 +69,19 @@ var fs = require('fs');
 //   stdout.pipe(writeStream);
 // });
 
-
-var writeStream = fs.createWriteStream('res3.png');
-// gm('./imput/background.png')
-// .resize('200', '200')
-// .stream()
-// .pipe(writeStream);
-
-
-var gm = require('gm');
-
-gm('./background.png')
-.resize(353, 257)
-.autoOrient()
-.write(writeStream, function (err) {
-    if (!err) console.log(' hooray! ');
-});
+//
+// var writeStream = fs.createWriteStream('res3.png');
+// // gm('./imput/background.png')
+// // .resize('200', '200')
+// // .stream()
+// // .pipe(writeStream);
+//
+//
+// var gm = require('gm');
+//
+// gm('./background.png')
+// .resize(353, 257)
+// .autoOrient()
+// .write(writeStream, function (err) {
+//     if (!err) console.log(' hooray! ');
+// });

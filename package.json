@@ -4,6 +4,7 @@
   "description": "",
   "license": "MIT",
   "dependencies": {
-    "gm": "^1.23.0"
+    "gm": "^1.23.0",
+    "jimp": "^0.2.28"
   }
 }
