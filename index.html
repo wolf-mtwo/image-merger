@@ -4,7 +4,52 @@
     <script src="script/script.js"></script>
   </head>
     <body>
+        <div style="padding: 50px">
+          <table>
+            <th>
+              <td>
+                X <input id="x"
+                         type="number"
+                         name="x"
+                         size="10"
+                         placeholder="x"
+                         step="10"
+                         onchange="reDraw()">
+              </td>
+              <td>
+                Y <input id="y"
+                         type="number"
+                         name="Y"
+                         size="10"
+                         placeholder="y"
+                         step="10"
+                         onchange="reDraw()">
+              </td>
+            </th>
+              <td>
+                <a href="#" class="button" id="btn-download">Download</a>
+              </td>
+            </th>
+          </table>
+        </div>
         <div id="wargos-images">
         </div>
     </body>
+    <script src="script/onload.js"></script>
 </html>
+<script type="text/javascript">
+var button = document.getElementById('btn-download');
+button.addEventListener('click', function (e) {
+  var items = document.getElementsByTagName('canvas');
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    var link = document.createElement('a');
+    link.setAttribute('download', null);
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.setAttribute('href', item.toDataURL('image/png'));
+    link.download = 'images-' + i + '.png';
+    link.click();
+  }
+});
+</script>

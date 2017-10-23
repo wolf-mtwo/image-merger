@@ -7,7 +7,7 @@ const INPUT_IMAGES = './input/';
 
 var generate = function(files) {
   var config = [
-    'var logo_url = \'./theme/logo.png\';',
+    'var logo_url = \'theme/logo.png\';',
     'var items = [',
         files.map(function(file) { return JSON.stringify(file); }).join(','), // || '  \'background.png\'',
     '];'
