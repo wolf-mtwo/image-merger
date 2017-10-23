@@ -11,7 +11,7 @@ var generate = function() {
   logo.onload = function() {
     items.forEach(function(item) {
       var image = new Image();
-      image.src = item;
+      image.src = './input/' + item;
       image.onload = function(err) {
         var canvas = create_canvas(image.width, image.height);
         var ctx = canvas.getContext("2d");
